@@ -1,0 +1,90 @@
+<div class="header B-gray P-16">
+    <div class="pure-menu pure-menu-horizontal">
+        
+        <ul class="pure-menu-list W-100">
+            <li class="pure-menu-item B-gray"><a href="/" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item pure-menu-active B-gray"><a href="/items" class="pure-menu-link">Products List</a></li>
+            <li class="pure-menu-item B-gray"><a href="/costumer" class="pure-menu-link">My Cart</a></li>
+            {{#if userId}}
+            <li class="pure-menu-item B-gray"><a href="/" class="pure-menu-link">Logout</a></li>
+            {{else}}
+            <li class="pure-menu-item B-gray"><a href="/costumer" class="pure-menu-link">Login</a></li>
+            {{/if}}
+        </ul>
+    </div>
+</div>
+
+<div class="content B-gray P-16">
+{{#if actionView}}
+    <table class="pure-table W-100">
+        <thead>
+            <tr>
+                <th class="L-screen">Image</th>
+                <th>Brand</th>
+                <th class="L-screen">Description</th>
+                <th class="M-screen">Price</th>
+                <th class="M-screen">Available</th>
+                <th>Add</th>
+            </tr>
+        </thead>
+
+        <tbody id="card-item">
+            {{!--
+            Use ajax instade of template engine
+            {{#items}}
+            <tr>
+                <td class="W-20 L-screen"><img src="{{img}}" class="W-100"></td>
+                <td class="W-20">{{brand}}</td>
+                <td class="W-40 L-screen">{{description}}</td>
+                <td class="W-10 M-screen Ta-c">{{price}}</td>
+                <td class="W-10 M-screen Ta-c">{{count}}</td>
+                <td class="W-10 Ta-c"><a href="/costumer?action=addItem&itemId={{id}}"><i class="fa fa-shopping-cart  F-m"></i></a></td>
+            </tr>
+            {{/items}}
+            --}}
+            <tr><td colspan="5" class="Ta-c"><img src="http://sierrafire.cr.usgs.gov/images/loading.gif" class="W-20"></td></tr>
+        </tbody>
+
+    </table>
+    <script type="text/javascript">
+        if (F) {
+            F.loadItem({targetNode:"#card-item" })
+        }
+    </script>
+    <div class="Py-10"><a class="pure-button pure-button-primary" href="/items?action=new">Add new product</a></div>
+{{/if}}
+
+{{#if actionNew}}
+    <form action="/items" class="pure-form  pure-form-aligned">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="name">Brand name</label>
+                <input type="text" name="brand" placeholder="Brand name">
+            </div>
+            <div class="pure-control-group">
+                <label for="price">Price</label>
+                <input type="text" name="price" placeholder="0$">
+            </div>
+            <div class="pure-control-group">
+                <label for="count">Available count</label>
+                <input type="text" name="count" placeholder="1">
+            </div>
+            <div class="pure-control-group">
+                <label for="img">Image link</label>
+                <input type="text" name="img" placeholder="http://image.jpg">
+            </div>
+            <div class="pure-control-group">
+                <label for="description">Description (optional)</label>
+                <input type="text" name="description" placeholder="description">
+                <input type="hidden" name="action" value="save">
+                <br><br>
+            </div>
+            <div class="pure-control-group">
+                <label for="description"></label>
+                <a class="pure-button" href="/items">Cancel</a>
+                <input type="submit" value="Submit" class="pure-button pure-button-primary">
+            </div>
+        <fieldset>
+    </form>
+{{/if}}
+</div>

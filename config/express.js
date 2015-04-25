@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 var exphbs = require('express-handlebars');
+var device  = require('express-device');
+var session = require('express-session');
 
 module.exports = function(app, config) {
     app.engine('handlebars', exphbs({
@@ -32,6 +34,18 @@ module.exports = function(app, config) {
     app.use(compress());
     app.use(express.static(config.root + '/public'));
     app.use(methodOverride());
+
+    // express-device
+    app.use(device.capture());
+    device.enableDeviceHelpers(app);
+    device.enableViewRouting(app);
+
+    app.use(session({
+        secret: 'nowycheung',
+        resave: false,
+        saveUninitialized: true,
+        maxAge: 10000
+    }));
 
     var controllers = glob.sync(config.root + '/app/controllers/*.js');
     controllers.forEach(function(controller) {

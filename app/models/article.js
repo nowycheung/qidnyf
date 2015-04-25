@@ -3,15 +3,21 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var ArticleSchema = new Schema({
-    title: String,
-    url: String,
-    text: String
+var Items = new Schema({
+    id: String,
+    brand: String,
+    description: String,
+    price: String,
+    count: String,
+    img: String
 });
 
-ArticleSchema.virtual('date')
-    .get(function() {
-        return this._id.getTimestamp();
-    });
+var Costumer = new Schema({
+    id: String,
+    name: String,
+    email: String,
+    cart: []
+});
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Items', Items);
+mongoose.model('Costumer', Costumer);

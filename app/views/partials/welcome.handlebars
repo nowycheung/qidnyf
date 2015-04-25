@@ -1,2 +1,19 @@
-
-<p>Welcome to {{title }}</p>
+<div class="header B-gray P-16">
+    <div class="pure-menu pure-menu-horizontal">
+        
+        <ul class="pure-menu-list W-100">
+            <li class="pure-menu-item pure-menu-active B-gray"><a href="#" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item B-gray"><a href="/items" class="pure-menu-link">Products List</a></li>
+            <li class="pure-menu-item B-gray"><a href="/costumer" class="pure-menu-link">My Cart</a></li>
+            {{#if id}}
+            
+            {{else}}
+            <li class="pure-menu-item F-end B-gray"><a href="/costumer?action=login" class="pure-menu-link">Login</a></li>
+            {{/if}}
+        </ul>
+    </div>
+</div>
+<div class="content B-gray P-16">
+    <h3 class="Ta-c">Welcome to {{title }}</h3>
+    <img class="W-100" src="https://scontent-tpe.xx.fbcdn.net/hphotos-xfp1/t31.0-8/c0.287.851.315/p851x315/737209_10151744906448437_732845369_o.jpg">
+</div>
