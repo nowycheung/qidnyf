@@ -173,7 +173,8 @@ router.get('/costumer', function(req, res, next) {
                     res.redirect('/costumer?action=view');
                 } else {
                     res.render(VIEW, {
-                        actionLogin: true
+                        actionLogin: true,
+                        email: email
                     });
                 }
             });
@@ -185,17 +186,26 @@ router.get('/costumer', function(req, res, next) {
         break;
         case "save":
             if (name && email) {
-                var costumer,
-                    data = {
-                        id: (new Date()).getTime(),
-                        name: name,
-                        email: email,
-                        cart: []
-                    };
-                costumer = new Costumer(data);
-                costumer.save();
+                costumerHandler("find", {
+                    email: email
+                }, function(err, data){
+                    if (data.length === 0) {
+                        var costumer,
+                            costumerData = {
+                                id: (new Date()).getTime(),
+                                name: name,
+                                email: email,
+                                cart: []
+                            };
+                        costumer = new Costumer(costumerData);
+                        costumer.save();
 
-                res.redirect('/costumer?action=view');
+                        req.session.userId = costumerData.id;
+                        res.redirect('/costumer?action=view');
+                    } else {
+                        res.redirect('/costumer?action=login&email=' + email);
+                    }
+                });
             } else {
                 res.redirect('/costumer?action=new');
             }
