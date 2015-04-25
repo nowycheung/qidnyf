@@ -20,7 +20,7 @@ var F = {
                     txt += '<td class="W-40 L-screen">' + item.description + '</td>';
                     txt += '<td class="W-10 M-screen">' + item.price + '</td>';
                     txt += '<td class="W-10 M-screen">' + item.count + '</td>';
-                    txt += '<td class="W-10"><a href="/costumer?action=removeItem&itemId=' + item.id +'"><i class="fa fa-trash-o F-m"></i></a></td>';
+                    txt += '<td class="W-10"><a href="/costumer?action=addItem&itemId=' + item.id +'"><i class="fa fa-shopping-cart F-m"></i></a></td>';
                     txt += "</tr>";
                 });
                 cartContainer.innerHTML = txt;
