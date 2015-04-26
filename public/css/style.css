@@ -1,6 +1,7 @@
 html {
-    min-width: 548px;
+    min-width: 280px;
 }
+
 body {
     padding: 20px 40px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -14,6 +15,10 @@ body {
 
 .content {
     
+}
+
+form fieldset{
+    text-align: center;
 }
 
 .D-ib {
@@ -98,10 +103,22 @@ body {
     .item-img, .item-desc, .L-screen {
         display: none!important;
     }
+    .pure-form input[type=text] {
+        display: inline-block;
+    }
 }
 
 @media screen and (max-width: 600px) {
     .item-count, .M-screen{
         display: none!important;
+    }
+    .pure-form input[type=text] {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .register-form {
+        width: 100%;
     }
 }

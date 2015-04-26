@@ -18,7 +18,7 @@ var F = {
                     txt += '<td class="W-20 L-screen"><img src="' + item.img + '" class="W-100"></td>';
                     txt += '<td class="W-20">' + item.brand + '</td>';
                     txt += '<td class="W-40 L-screen">' + item.description + '</td>';
-                    txt += '<td class="W-10 M-screen">' + item.price + '</td>';
+                    txt += '<td class="">' + item.price + '</td>';
                     txt += '<td class="W-10 M-screen">' + item.count + '</td>';
                     txt += '<td class="W-10"><a href="/costumer?action=addItem&itemId=' + item.id +'"><i class="fa fa-shopping-cart F-m"></i></a></td>';
                     txt += "</tr>";

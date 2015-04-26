@@ -1,5 +1,5 @@
 <div class="header B-gray P-16">
-    <div class="pure-menu pure-menu-horizontal">
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
         
         <ul class="pure-menu-list W-100">
             <li class="pure-menu-item B-gray"><a href="/" class="pure-menu-link">Home</a></li>
@@ -16,7 +16,7 @@
 
 <div class="content B-gray P-16">
     {{#if actionLogin}}
-        <div class="W-80 D-ib">
+        <div class="W-100">
             <h2 class="Ta-c">Login</h2>
             <form action="/costumer" class="pure-form  pure-form-aligned">
                 <fieldset>
@@ -36,16 +36,16 @@
 
     {{#if actionNew}}
     <div class="W-100">
-        <div class="W-60 D-ib">
+        <div class="W-60 D-ib register-form">
             <h2 class="Ta-c">Register</h2>
             <form action="/costumer" class="pure-form  pure-form-aligned">
                 <fieldset>
                     <div class="pure-control-group">
-                        <label for="name">Name</label>
+                        <label for="name" class="L-screen">Name</label>
                         <input type="text" name="name" placeholder="fullname">
                     </div>
                     <div class="pure-control-group">
-                        <label for="email">Email</label>
+                        <label for="email" class="L-screen">Email</label>
                         <input type="text" name="email" placeholder="your@email.com">
                     </div>
 
