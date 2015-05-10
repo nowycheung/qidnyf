@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <div class="header B-gray P-16">
+        <div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+            <ul class="pure-menu-list W-100">
+                <li class="pure-menu-item B-gray"><a href="https://evening-springs-4541.herokuapp.com/" target="_blank" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item pure-menu-active B-gray"><a href="#" class="pure-menu-link">Products List</a></li>
+                <li class="pure-menu-item B-gray"><a href="./cart.html" class="pure-menu-link">My Cart <span id="cart-item-counter"></span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content B-gray P-16">
+        <table class="pure-table W-100">
+            <thead>
+                <tr>
+                    <th class="W-20 L-screen">Image</th>
+                    <th class="W-20">Brand</th>
+                    <th class="W-40 L-screen">Description</th>
+                    <th>Price</th>
+                    <th class="W-10 M-screen">Available</th>
+                    <th class="W-10" >Add</th>
+                </tr>
+            </thead>
+            <tbody id="card-item">
+                <tr><td colspan="6" class="Ta-c"><img src="../img/ajaxLoader.gif" class="W-20"></td></tr>
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            if (F) {
+                // Load all items
+                F.loadItem({targetNode: document.querySelector("#card-item") }, function draw(data, targetNode){
+                    var txt = "";
+                    data.forEach(function(item){
+                        txt += "<tr>";
+                        txt += '<td class="L-screen"><img src="' + item.img + '" class="W-100"></td>';
+                        txt += '<td>' + item.brand + '</td>';
+                        txt += '<td class="L-screen">' + item.description + '</td>';
+                        txt += '<td>' + item.price + '</td>';
+                        txt += '<td class="M-screen">' + item.count + '</td>';
+                        txt += '<td><i class="fa fa-shopping-cart F-m addItem-js Cur-p"  data-item="' + item.id + '"></i></td>';
+                        txt += "</tr>";
+                    });
+                    targetNode.innerHTML = txt;
+                });
+            }
+        </script>
+        <div class="Py-10"><a class="pure-button pure-button-primary" href="https://evening-springs-4541.herokuapp.com/items?action=new" target="_blank">Add new product</a></div>
+    </div>
+</body>
+</html>

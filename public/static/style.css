@@ -90,6 +90,10 @@ form fieldset{
     display: inline;
 }
 
+.Cur-p {
+    cursor: pointer
+}
+
 .Bc-gray{
     background-color: #ccc;
 }
@@ -120,4 +124,30 @@ form fieldset{
     .register-form {
         width: 100%;
     }
+}
+
+
+.Table {
+    display: table;
+}
+.Title {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+.Row {
+    display: table-row;
+}
+.Cell {
+    display: table-cell;
+    border: solid;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
 }
