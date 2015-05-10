@@ -19,7 +19,8 @@ var F = {
 
         // Mimic event delegate
         cartContainer.onclick = function(e){
-            if (e.target.classList.contains("addItem-js")) {
+            if (e.target.className.indexOf("addItem-js") >= 0) {
+            // if (e.target.classList.contains("addItem-js")) {
                 // Update the cart item
                 self.dataHandler(e.target.getAttribute("data-item"));
             }
@@ -43,7 +44,8 @@ var F = {
 
         // Mimic event delegate
         cartContainer.onclick = function(e){
-            if (e.target.classList.contains("removeItem-js")) {
+            if (e.target.className.indexOf("removeItem-js") >= 0) {
+            // if (e.target.classList.contains("removeItem-js")) {
                 costumerCartItemList = F.dataHandler(e.target.getAttribute("data-item"));
                 // Get the whole list since we don't have any API
                 self.ajax(self.productListAPI, "", function(data){

@@ -23,26 +23,28 @@
     </div>
 
     <div class="content B-gray P-16">
-        <table class="pure-table W-100">
-            <thead>
-                <tr>
-                    <th class="W-20 L-screen">Image</th>
-                    <th class="W-20">Brand</th>
-                    <th class="W-40 L-screen">Description</th>
-                    <th>Price</th>
-                    <th class="W-10 M-screen">Available</th>
-                    <th class="W-10" >Add</th>
-                </tr>
-            </thead>
-            <tbody id="card-item">
-                <tr><td colspan="6" class="Ta-c"><img src="../img/ajaxLoader.gif" class="W-20"></td></tr>
-            </tbody>
-        </table>
+        <div id="card-item">
+            <table class="pure-table W-100">
+                <thead>
+                    <tr>
+                        <th class="W-20 L-screen">Image</th>
+                        <th class="W-20">Brand</th>
+                        <th class="W-40 L-screen">Description</th>
+                        <th>Price</th>
+                        <th class="W-10 M-screen">Available</th>
+                        <th class="W-10" >Add</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="6" class="Ta-c"><img src="../img/ajaxLoader.gif" class="W-20"></td></tr>
+                </tbody>
+            </table>
+        </div>
         <script type="text/javascript">
             if (F) {
                 // Load all items
                 F.loadItem({targetNode: document.querySelector("#card-item") }, function draw(data, targetNode){
-                    var txt = "";
+                    var txt = '<table class="pure-table W-100"><thead> <tr> <th class="W-20 L-screen">Image</th> <th class="W-20">Brand</th> <th class="W-40 L-screen">Description</th> <th>Price</th> <th class="W-10 M-screen">Available</th> <th class="W-10" >Add</th> </tr> </thead>';
                     data.forEach(function(item){
                         txt += "<tr>";
                         txt += '<td class="L-screen"><img src="' + item.img + '" class="W-100"></td>';
@@ -53,7 +55,7 @@
                         txt += '<td><i class="fa fa-shopping-cart F-m addItem-js Cur-p"  data-item="' + item.id + '"></i></td>';
                         txt += "</tr>";
                     });
-                    targetNode.innerHTML = txt;
+                    targetNode.innerHTML = txt + '</table>';
                 });
             }
         </script>
